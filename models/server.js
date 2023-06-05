@@ -4,6 +4,7 @@ const cors = require('cors');
 class Server{
     constructor(){
         this.app = express();
+        this.port = process.env.PORT;
         this.usuariosPath = '/api/usuarios';
 
         //middlewares
@@ -34,8 +35,8 @@ class Server{
     }
 
     listen(){
-        this.app.listen(3000, () => {
-            console.log('Server online por 3000');
+        this.app.listen(this.port, () => {
+            console.log('Server online por: ', this.port);
             //console.log(process.env)
         })
     }
